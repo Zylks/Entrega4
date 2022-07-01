@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'app/css/estilos.css' %}">
+    
+    <link rel="stylesheet" href="{% static 'app/css/estiloMenu.css' %}">
+    <!-- <a href="paginas/carruselAccesorios.html"></a> -->
+
+    <title>Moraga Accesories</title>
+  
+    <header>
+      <form action="_">
+      <nav class="navegacion">
+        <ul class="menu">
+          <li><a href="{% url 'home'%}"><h3>Inicio</h3></a></li>
+          <li><a href="#"><h3>Sobre nosotros</h3></a></li>
+          <li><a href="{% url 'contacto'%}"><h3>Contacto</h3></a></li>
+          <li><a href="{% url 'listar'%}"><h3>Listar Contactos</h3></a></li>
+          
+          {% if user.is_authenticated %}
+          <li>
+            <a href="{% url 'logout' %}"><h2>cerrar sesión</h2></a>
+          </li>
+          <li>
+            <a href="#"><h2>@{{ user.username }}</h2></a>
+          </li>
+          {% else %}
+          <li>
+            <a href="{% url 'login' %}"> <h2> Iniciar sesión</h2></a>
+          </li>
+          <li>
+            <a href="{% url 'registro' %}"> <h2> Registrate</h2></a>
+          </li>
+          {% endif %}
+          
+        </ul>
+      </nav>
+    </form>
+    </header>
+    <div class="container">
+    <section class="carrusel">
+      <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+      {% block contenido %}
+      {% endblock %}
+      
+      
+      </div>
+  </section>
+  </div>
+  
+<div class="lateral_1">
+  <div>
+    <h5>ACCESORIOS PARA TU MASCOTA</h5>
+  </div>
+ 
+  <div>
+    <p>
+      En esta tienda podras todos los accesorios que tu mascota necesita para su dia a dia, ya sean juguetes, collares, correas, entre muchos otros.
+      Haciendo click en el link de abajo usted podra ver las categorias que tenemos disponibles hasta el momento.
+    </p>
+  </div>
+  <br/>
+  <a href="accesorios"> ¡Pinche aqui!</a>
+  <br/>
+  <img src="{% static 'app/img/Accesorios/accesorios.jpg' %}" alt="Accesorios" />
+</div>
+
+<div class="lateral_2">
+  <h3>COMIDA PARA MASCOTAS</h3>
+  <p>
+    Esta tienda no solo vende accesorios, sino que tambien se venden todos los tipos de comidas que hay en el mercado para que nuestros usuarios tengan una
+    gran variedad la cual puedan comprar
+    <br>
+    <a href="comida"> ¡Pinche aqui!</a>
+  </p>
+  <img src="{% static 'app/img/Comidas/alimento-para-mascotas-las-condes-dato-avisos.png' %}" alt="Alimento" />
+</div>
+
+
+          
+      <footer class="contenido">
+        <div class="fono">
+          <h5><a>+56 9 81284888</a></h5>
+        </div>
+        <div class="NombreTienda">
+          <h4><a>Moraga's Accesories & Food</a></h4>
+        </div>
+        <div class="redes">
+          <ul>
+            <li>
+              <img src="{% static 'app/img/icons/facebook-f-brands.svg' %}" alt="facebook" />
+            </li>
+            <li>
+              <img src="../../static/app/img/icons/google-plus-g-brands.svg" alt="google+" />
+            </li>
+            <li>
+              <img src="../../static/app/img/icons/instagram-brands.svg" alt="instagram" />
+            </li>
+            <li>
+              <img src="../../static/app/img/icons/envelope-solid.svg" alt="mail" />
+            </li>
+          </ul>
+        </div>
+      </footer>
+
+      <!-- este es el div del container general-->
+
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+              <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+              <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>
